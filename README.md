@@ -1,6 +1,6 @@
 ![Logo](logo.png)
 # Bag of STARs
-STAR mapping on slurm clusters in bags.
+STAR mapping on slurm clusters in bags. This fork enables modularization of configuration for execution parameters.
 
 ## Requirements
 - `python3.4+`

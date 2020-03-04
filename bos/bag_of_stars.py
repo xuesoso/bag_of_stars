@@ -122,9 +122,7 @@ class BagOfStars(object):
             call = [
                 os.getenv('STAR', 'STAR'),
                 '--runMode', 'alignReads',
-                '--genomeDir', args.genomeDir,
                 '--genomeLoad', 'LoadAndKeep',
-                '--readFilesIn', fq1, fq2,
                 '--readFilesCommand', 'zcat',
                 '--outFilterType', 'BySJout',
                 '--outFilterMultimapNmax', '20',
@@ -136,13 +134,15 @@ class BagOfStars(object):
                 '--alignIntronMax', '1000000',
                 '--alignMatesGapMax', '1000000',
                 '--outSAMstrandField', 'intronMotif',
-                '--outFileNamePrefix', args.output+sn+'/',
                 '--outSAMtype', 'BAM', 'Unsorted',
                 '--outSAMattributes', 'NH', 'HI', 'AS', 'NM',
                 '--outFilterMatchNminOverLread', '0.4',
                 '--outFilterScoreMinOverLread', '0.4',
                 '--clip3pAdapterSeq', 'CTGTCTCTTATACACATCT',
                 '--outReadsUnmapped', 'Fastx',
+                '--readFilesIn', fq1, fq2,
+                '--genomeDir', args.genomeDir,
+                '--outFileNamePrefix', args.output+sn+'/',
                 ]
             print(' '.join(call))
             if not self.args.dry:

@@ -149,10 +149,7 @@ if __name__ == '__main__':
                 call = [
                     os.getenv('STAR', 'STAR'),
                     '--runMode', 'alignReads',
-                    '--genomeDir', args.genomeDir,
                     '--genomeLoad', 'LoadAndKeep',
-                    '--outTmpDir', output_tmp_star,
-                    '--readFilesIn', fq1, fq2,
                     '--readFilesCommand', 'zcat',
                     '--outFilterType', 'BySJout',
                     '--outFilterMultimapNmax', '20',
@@ -164,14 +161,17 @@ if __name__ == '__main__':
                     '--alignIntronMax', '1000000',
                     '--alignMatesGapMax', '1000000',
                     '--outSAMstrandField', 'intronMotif',
-                    '--outFileNamePrefix', args.output+sn+'/',
                     '--outSAMtype', 'BAM', 'Unsorted',
                     '--outSAMattributes', 'NH', 'HI', 'AS', 'NM',
-                               '--outFilterMatchNminOverLread', '0.4',
-                               '--outFilterScoreMinOverLread', '0.4',
-                               '--clip3pAdapterSeq', 'CTGTCTCTTATACACATCT',
-                               '--outReadsUnmapped', 'Fastx',
-                               ]
+                    '--outFilterMatchNminOverLread', '0.4',
+                    '--outFilterScoreMinOverLread', '0.4',
+                    '--clip3pAdapterSeq', 'CTGTCTCTTATACACATCT',
+                    '--outReadsUnmapped', 'Fastx',
+                    '--genomeDir', args.genomeDir,
+                    '--outTmpDir', output_tmp_star,
+                    '--readFilesIn', fq1, fq2,
+                    '--outFileNamePrefix', args.output+sn+'/',
+                    ]
                 printfl(' '.join(call))
                 if not args.dry:
                     sp.run(call, check=True)

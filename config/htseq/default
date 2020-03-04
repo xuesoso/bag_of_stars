@@ -1,0 +1,5 @@
+'--format', 'bam',
+'--mode', 'intersection-nonempty',
+'--stranded', 'no',
+'--secondary-alignments', 'ignore',
+'--supplementary-alignments', 'ignore',
